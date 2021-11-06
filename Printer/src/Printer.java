@@ -1,9 +1,11 @@
 public class Printer {
-    private double tonerLevel = 100.0;
-    private int numberOfPagesPrinted = 0;
+    private double tonerLevel;
+    private int numberOfPagesPrinted;
     private boolean isDuplex;
 
     public Printer(boolean isDuplex) {
+        this.tonerLevel = 100;              //new printers should have full toner
+        this.numberOfPagesPrinted = 0;      //initially, the printers haven't printed any jobs out
         this.isDuplex = isDuplex;
     }
 
@@ -64,3 +66,9 @@ public class Printer {
         this.numberOfPagesPrinted = numberOfPagesPrinted;
     }
 }
+
+
+// instrunctors solution:
+// addToner(int tonerAmount)
+// printPages(int pages)
+
