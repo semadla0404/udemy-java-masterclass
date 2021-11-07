@@ -30,57 +30,57 @@ class Car {
     }
 }
 
-class Model3 extends Car {
-    public Model3() {
-        super("Model 3", 0);
+class Tesla extends Car {
+    public Tesla(String name, int cylinders) {
+        super(name, cylinders);
     }
 
     @Override
     public String startEngine() {
-        return "Starting Engine...  Vrrrrooooooom Model 3";
+        return "Tesla -> Starting Engine...  Vrrrrooooooom";
     }
 
     @Override
     public String accelerate() {
-        return "Starting to Accelerate...  Mr. Musk, ready for take off...";
+        return "Tesla -> Starting to Accelerate...  Mr. Musk, ready for take off...";
     }
 
     @Override
     public String brake() {
-        return "Starting to Brake...  Rentry commencing";
+        return "Tesla -> Starting to Brake...  Rentry commencing";
     }
 }
 
 class Jeep extends Car {
-    public Jeep() {
-        super("Jeep Wrangler", 6);
+    public Jeep(String name, int cylinders) {
+        super(name, cylinders);
     }
 
     @Override
     public String startEngine() {
-        return "Starting Engine...  Vrrrrooooooom Wrangler";
+        return "Jeep -> Starting Engine...  Vrrrrooooooom Jeep";
     }
 
     @Override
     public String accelerate() {
-        return "Starting to Accelerate...  putt putt putt Jeep...";
+        return "Jeep -> Starting to Accelerate...  putt putt putt Jeep...";
     }
 
 }
 
-class Mustang extends Car {
-    public Mustang() {
-        super("Mustang", 8);
+class Ford extends Car {
+    public Ford(String name, int cylinders) {
+        super(name, cylinders);
     }
 
     @Override
     public String startEngine() {
-        return "Starting Engine...  Vrrrrooooooom Mustang";
+        return "Ford -> Starting Engine...  Vrrrrooooooom Mustang";
     }
 
     @Override
     public String brake() {
-        return "Starting to Brake...  Woah Hoss!";
+        return "Ford -> Starting to Brake...  Woah Hoss!";
     }
 }
 
@@ -95,21 +95,21 @@ public class Main {
         System.out.println(car.brake());
         System.out.println("=========================");
 
-        Model3 myModel3 = new Model3();
+        Tesla myModel3 = new Tesla("Model 3", 0);
         System.out.println(myModel3.getName());
         System.out.println(myModel3.startEngine());
         System.out.println(myModel3.accelerate());
         System.out.println(myModel3.brake());
         System.out.println("=========================");
 
-        Jeep myJeep = new Jeep();
+        Jeep myJeep = new Jeep("Wrangler", 6);
         System.out.println(myJeep.getName());
         System.out.println(myJeep.startEngine());
         System.out.println(myJeep.accelerate());
         System.out.println(myJeep.brake());
         System.out.println("=========================");
 
-        Mustang myMustang = new Mustang();
+        Ford myMustang = new Ford("Mustang", 8);
         System.out.println(myMustang.getName());
         System.out.println(myMustang.startEngine());
         System.out.println(myMustang.accelerate());
