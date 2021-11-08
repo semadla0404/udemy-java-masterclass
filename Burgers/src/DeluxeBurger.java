@@ -1,7 +1,7 @@
 public class DeluxeBurger extends Burger {
-    private String deluxeExtraName1;
     private double deluxeExtraPrice1;
     private String deluxeExtraName2;
+    private String deluxeExtraName1;
     private double deluxeExtraPrice2;
 
     public DeluxeBurger(String bread, String meat, double price) {
