@@ -22,7 +22,7 @@ public class Bank {
     public boolean addCustomer(String branchName, String customerName, double initialTransaction) {
         Branch branch = findBranch(branchName);
         if(branch != null) {
-            return branch.addNewCustomer(customerName, initialTransaction);
+            return branch.newCustomer(customerName, initialTransaction);
         }
         return false;
     }
@@ -46,23 +46,23 @@ public class Bank {
         return null;
     }
 
-    public Boolean printCustomerList(String branchName, boolean printTransactions) {
+    public boolean listCustomers(String branchName, boolean printTransactions) {
         Branch branch = findBranch(branchName);
         if(branch != null) {
-            System.out.println("Printing Customer list for branch: " + branch.getName());
+            System.out.println("Customer details for branch " + branch.getName());
             // get the customer array list to traverse
-            ArrayList<Customer> customers = branch.getBranchCustomers();
+            ArrayList<Customer> customers = branch.getCustomers();
             for(int i=0; i < customers.size(); i++) {
                 // get the customer to print out
                 Customer branchCustomer = customers.get(i);
-                System.out.println((i+1) + ": " + branchCustomer.getCustomerName());
+                System.out.println("Customer: " + branchCustomer.getName() + "[" + (i+1) + "]");
 
                 if(printTransactions) {
                     // get the transaction array list to traverse
                     ArrayList<Double> transactions = branchCustomer.getTransactions();
-                    System.out.println("\tTransactions:");
+                    System.out.println("Transactions");
                     for (int j = 0; j < transactions.size(); j++) {
-                        System.out.println("\t\t [" + (j+1) + "] Amount: " + transactions.get(j));
+                        System.out.println("[" + (j+1) + "]  Amount " + transactions.get(j));
                     }
                 }
             }

@@ -30,8 +30,8 @@ public class Main {
         myBank.addCustomerTransaction("Helotes", "Linda Massey", 195.96);
         myBank.addCustomerTransaction("Helotes", "Linda Massey", 145.99);
 
-        myBank.printCustomerList("Stone Oak", true);
-        myBank.printCustomerList("Helotes", false);
+        myBank.listCustomers("Stone Oak", true);
+        myBank.listCustomers("Helotes", false);
 
 
         // Checking some negative test cases
