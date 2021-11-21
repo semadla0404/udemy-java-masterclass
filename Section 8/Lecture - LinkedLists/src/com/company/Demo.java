@@ -111,6 +111,7 @@ public class Demo {
                         }
                         goingForward = true;
                     }
+
                     if(listIterator.hasNext()) {
                         System.out.println("Now visiting " + listIterator.next());
                     } else {
@@ -125,6 +126,7 @@ public class Demo {
                         }
                         goingForward = false;
                     }
+
                     if(listIterator.hasPrevious()) {
                         System.out.println("Now visiting " + listIterator.previous());
                     } else {

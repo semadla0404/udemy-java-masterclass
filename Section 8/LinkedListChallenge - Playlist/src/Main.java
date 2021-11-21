@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static boolean forward = true;
+    private static boolean goingForward = true;
+    private static ListIterator<Song> songListIterator; //= playlist.listIterator();
 
     public static void main(String[] args) {
         ArrayList<Album> albums = new ArrayList<Album>();
@@ -26,7 +28,7 @@ public class Main {
         album2.addSong("duran duran song 5", "3:33");
         albums.add(album2);
 
-        // add songs to playlist
+        // add songs to playlist - songs will be played in this order.
         album1.addtoPlaylist("billy joel song 3", myPlaylist);
         album1.addtoPlaylist("billy joel song 1", myPlaylist);
         album1.addtoPlaylist(4, myPlaylist);
@@ -40,6 +42,10 @@ public class Main {
 
     private static void play(LinkedList<Song> playlist) {
         boolean quit = false;
+//        boolean goingForward = true;
+//        ListIterator<Song> songListIterator = playlist.listIterator();
+        songListIterator = playlist.listIterator();
+
         System.out.println("\n\nStarting Playlist.....\n" +
                 "======================");
         printOptions();
@@ -48,7 +54,7 @@ public class Main {
             int action = scanner.nextInt();
             switch (action) {
                 case 0:
-                    System.out.println("Closing Playlist.....");
+                    System.out.println("\nClosing Playlist.....");
                     quit = true;
                     break;
                 case 1:
@@ -56,6 +62,15 @@ public class Main {
                     break;
                 case 2:
                     skipBackward();
+                    break;
+                case 3:
+                    replayCurrent();
+                    break;
+                case 4:
+                    listSongsInPlaylist(playlist);
+                    break;
+                case 5:
+                    removeFromPlaylist(playlist);
                     break;
                 case 6:
                     printOptions();
@@ -75,11 +90,77 @@ public class Main {
                 "\t6 - Print available options\n");
     }
 
-    private static void skipForward() {}
+    private static void skipForward() {
+        // handle the change of direction
+        if(!goingForward) {
+            if(songListIterator.hasNext()) {   // **is this check necessary?  Can't we just next() and set goingForward?
+                songListIterator.next();
+            }
+            goingForward = true;
+        }
+        // implement playing next song
+        if(songListIterator.hasNext()) {
+            System.out.println("⏭ Playing next song: " + songListIterator.next().getTitle());
+        } else {
+            System.out.println("Reached the end of the playlist.");
+            goingForward = false;
+        }
+    }
 
-    private static void skipBackward() {}
+    private static void skipBackward() {
+        // handle the change of direction
+        if(goingForward) {
+            if(songListIterator.hasPrevious()) {   // **is this check necessary?  Can't we just next() and set goingForward?
+                songListIterator.previous();
+            }
+            goingForward = false;
+        }
+        // implement playing previous song
+        if(songListIterator.hasPrevious()) {
+            System.out.println("⏮ Playing previous song: " + songListIterator.previous().getTitle());
+        } else {
+            System.out.println("Reached the beginning of the playlist.");
+            goingForward = true;
+        }
+    }
 
-    private static void listSongsInPlaylist() {}
+    private static void replayCurrent() {
+        if(goingForward) {
+            System.out.println("Replaying song: " + songListIterator.previous().getTitle());
+            goingForward = false;
+        } else {
+            System.out.println("Replaying song: " + songListIterator.next().getTitle());
+            goingForward = true;
+        }
+    }
+
+    private static void listSongsInPlaylist(LinkedList<Song> playlist) {
+        ListIterator<Song> index = playlist.listIterator();
+        int count = 1;
+        while(index.hasNext()) {
+            System.out.println(count + ": " + index.next().getTitle());
+            count++;
+        }
+    }
+
+    private static void removeFromPlaylist(LinkedList<Song> playlist) {
+        // check to see if playlist has songs to remove
+        if(!playlist.isEmpty()) {
+            if(songListIterator.hasNext()) {
+                songListIterator.next();
+                songListIterator.previous();
+            }
+            songListIterator.remove();
+            // play a next/previous song
+            if (songListIterator.hasNext()) {
+                System.out.println("Playing next song: " + songListIterator.next().getTitle());
+            } else if (songListIterator.hasPrevious()) {
+                System.out.println("Playing previous song: " + songListIterator.previous().getTitle());
+            }
+        } else {
+            System.out.println("No more songs to remove.  Playlist is empty.");
+        }
+    }
 
 
 }
