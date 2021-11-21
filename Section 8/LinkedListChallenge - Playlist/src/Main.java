@@ -27,10 +27,15 @@ public class Main {
         albums.add(album2);
 
         // add songs to playlist
-
+        album1.addtoPlaylist("billy joel song 3", myPlaylist);
+        album1.addtoPlaylist("billy joel song 1", myPlaylist);
+        album1.addtoPlaylist(4, myPlaylist);
+        album2.addtoPlaylist(1, myPlaylist);
+        album2.addtoPlaylist("duran duran song 3", myPlaylist);
+        album2.addtoPlaylist(5, myPlaylist);
 
         // play playlist
-//        play(myPlaylist);
+        play(myPlaylist);
     }
 
     private static void play(LinkedList<Song> playlist) {

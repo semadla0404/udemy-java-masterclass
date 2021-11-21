@@ -43,12 +43,20 @@ public class Album {
         return null;
     }
 
-    // add track by track number to playlist
+    // add track by track number to playlist, only if it is in the album list
     public boolean addtoPlaylist(int trackNumber, LinkedList<Song> playlist) {
-        return true;
+        // check to see if that track number exists on the album
+        int index = trackNumber - 1;
+        if((index >= 0) && (index <= this.songs.size())) {
+            // song exists in the album, so add the song to the playlist
+            playlist.add(this.songs.get(index));
+            return true;
+        }
+        System.out.println("Song track " + trackNumber +" was not found on the album.  Song not added.");
+        return false;
     }
 
-    // add track by track title to the playlist
+    // add track by track title to the playlist, only if it is in the album list
     public boolean addtoPlaylist(String trackTitle, LinkedList<Song> playlist) {
         // check this album to see if we own the song
         for(int i=0; i < this.songs.size(); i++) {
@@ -59,6 +67,7 @@ public class Album {
                 return true;
             }
         }
+        System.out.println(trackTitle + ": this track was not found on the album.  Song not added.");
         return false;
     }
 }
