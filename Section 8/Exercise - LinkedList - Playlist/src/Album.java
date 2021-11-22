@@ -3,28 +3,16 @@ import java.util.LinkedList;
 
 public class Album {
     private String artist;
-    private String title;
+    private String name;
     private ArrayList<Song> songs;
 
     public Album(String artist, String title) {
         this.artist = artist;
-        this.title = title;
+        this.name = title;
         this.songs = new ArrayList<Song>();
     }
 
-    public String getArtist() {
-        return artist;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public ArrayList<Song> getSongs() {
-        return songs;
-    }
-
-    public boolean addSong(String songTitle, String songDuration) {
+    public boolean addSong(String songTitle, double songDuration) {
         Song song = findSong(songTitle);
         if(song == null) {
             this.songs.add(new Song(songTitle, songDuration));
@@ -42,7 +30,7 @@ public class Album {
 //        }
 
         // USING FOR EACH
-        for(Song checkedSong: this.songs) {     // <== ALTERNATIVE WAY using For Each
+        for(Song checkedSong : this.songs) {     // <== ALTERNATIVE WAY using For Each
             if(checkedSong.getTitle().equals(songTitle)) {
                 return checkedSong;
             }
@@ -51,7 +39,7 @@ public class Album {
     }
 
     // add track by track number to playlist, only if it is in the album list
-    public boolean addtoPlaylist(int trackNumber, LinkedList<Song> playlist) {
+    public boolean addToPlayList(int trackNumber, LinkedList<Song> playlist) {
         // check to see if that track number exists on the album
         int index = trackNumber - 1;
         if((index >= 0) && (index <= this.songs.size())) {
@@ -64,7 +52,7 @@ public class Album {
     }
 
     // add track by track title to the playlist, only if it is in the album list
-    public boolean addtoPlaylist(String trackTitle, LinkedList<Song> playlist) {
+    public boolean addToPlayList(String trackTitle, LinkedList<Song> playlist) {
         // check this album to see if we own the song
         Song checkedSong = findSong(trackTitle);
         if(checkedSong != null) {

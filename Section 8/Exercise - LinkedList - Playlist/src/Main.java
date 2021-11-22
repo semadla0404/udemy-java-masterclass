@@ -15,29 +15,29 @@ public class Main {
         LinkedList<Song> myPlaylist = new LinkedList<Song>();
 
         Album album1 = new Album("Billy Joel", "Glass Houses");
-        album1.addSong("billy joel song 1", "2:45");
-        album1.addSong("billy joel song 2", "3:23");
-        album1.addSong("billy joel song 3", "2:27");
-        album1.addSong("billy joel song 4", "3:44");
+        album1.addSong("billy joel song 1", 2.45);
+        album1.addSong("billy joel song 2", 3.23);
+        album1.addSong("billy joel song 3", 2.27);
+        album1.addSong("billy joel song 4", 3.44);
         albums.add(album1);
 
         Album album2 = new Album("duran duran", "Rio");
-        album2.addSong("duran duran song 1", "4:23");
-        album2.addSong("duran duran song 2", "3:37");
-        album2.addSong("duran duran song 3", "2:52");
-        album2.addSong("duran duran song 4", "1:12");
-        album2.addSong("duran duran song 5", "3:33");
+        album2.addSong("duran duran song 1", 4.33);
+        album2.addSong("duran duran song 2", 3.37);
+        album2.addSong("duran duran song 3", 2.52);
+        album2.addSong("duran duran song 4", 1.12);
+        album2.addSong("duran duran song 5", 3.33);
         albums.add(album2);
 
         // add songs to playlist - songs will be played in this order.
-        album1.addtoPlaylist("billy joel song 3", myPlaylist);
-        album1.addtoPlaylist("billy joel song 1", myPlaylist);
-        album1.addtoPlaylist(4, myPlaylist);
-        album2.addtoPlaylist(7, myPlaylist);    // doesn't exist
-        album2.addtoPlaylist(1, myPlaylist);
-        album1.addtoPlaylist("billy joel song 7", myPlaylist);  // doesn't exist
-        album2.addtoPlaylist("duran duran song 3", myPlaylist);
-        album2.addtoPlaylist(5, myPlaylist);
+        album1.addToPlayList("billy joel song 3", myPlaylist);
+        album1.addToPlayList("billy joel song 1", myPlaylist);
+        album1.addToPlayList(4, myPlaylist);
+        album2.addToPlayList(7, myPlaylist);    // doesn't exist
+        album2.addToPlayList(1, myPlaylist);
+        album1.addToPlayList("billy joel song 7", myPlaylist);  // doesn't exist
+        album2.addToPlayList("duran duran song 3", myPlaylist);
+        album2.addToPlayList(5, myPlaylist);
 
         // play playlist
         play(myPlaylist);
