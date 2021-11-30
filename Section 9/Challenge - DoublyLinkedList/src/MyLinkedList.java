@@ -67,7 +67,8 @@ public class MyLinkedList implements DoublyLinkedList {
         // need to traverse the list and compare each node to item
         NodeItem currentItem = this.root;  // set a node to head of the list to keep tabs on what node we are looking at
         while(currentItem != null) {
-            if(currentItem.getData().equals(item.getData())) {
+            int comparison = currentItem.compareTo(item);
+            if(comparison == 0) {
                 // the currentItem EQUALS item, so delete it
                 if(currentItem.previous() == null) {  // node to delete is at start
                     this.root = this.root.next();
