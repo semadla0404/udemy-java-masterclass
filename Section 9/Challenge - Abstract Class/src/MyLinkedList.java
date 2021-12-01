@@ -93,5 +93,11 @@ public class MyLinkedList implements NodeList {
                 root = root.next();
             }
         }
+
+        // written recursively
+//        if(root != null) {
+//            System.out.println(root.getValue());
+//            traverse(root.next());
+//        }
     }
 }
