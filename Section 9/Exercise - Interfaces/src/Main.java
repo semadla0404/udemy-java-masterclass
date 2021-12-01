@@ -5,12 +5,12 @@ public class Main {
 
     public static void main(String[] args) {
         // Example 1:  declaring a variable of it class type instead of the interface type. <Player mario>
-        Player mario = new Player("Mario", 70, 90, 99);
+        Player mario = new Player("Mario", 70, 90);
         System.out.println(mario);
         saveObject(mario);
 
-        mario.setStamina(100);
-        mario.setStrength(50);
+        mario.setStrength(100);
+        mario.setHitPoints(50);
         saveObject(mario);
         loadObject(mario);
         System.out.println(mario);
@@ -18,7 +18,7 @@ public class Main {
         // Example 2:  declaring a variable of its interface type instead of the class type. <ISaveable zombie>
         ISaveable zombie = new Monster("Zombie", 30, 50);
 //        System.out.println("Strength = " + zombie.getStrength()); // <==Can't do this because zombie is actually an ISaveable object, not a Monster object.  You need to cast Monster to it.
-        System.out.println("Strength = " + ((Monster) zombie).getStrength());
+        System.out.println("Strength = " + ((Monster) zombie).getHitPoints());
         System.out.println(zombie);
         saveObject(zombie);
 
