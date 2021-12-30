@@ -16,7 +16,7 @@ Course Website:  [Java Programming Masterclass covering Java 11 & Java 17](https
 - [x] Section 08 - Arrays, Java inbuilt Lists, Autoboxing and Unboxing
 - [x] Section 09 - Inner and Abstract Classes & Interfaces
 - [x] Section 10 - Java Generics
-- [ ] Section 11 - Naming Conventions and Packages static and final keywords
+- [x] Section 11 - Naming Conventions and Packages static and final keywords
 - [ ] Section 12 - Java Collections
 - [ ] Section 13 - JavaFX
 - [ ] Section 14 - Basic Input & Output including java.util
